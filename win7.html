@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Windows 7 — Ybrahim Alexander R. Calvo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d0d0d; --surface: #161616; --border: #252525;
+      --accent: #c8a96e; --text: #e8e2d9; --muted: #6b6560;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; font-weight: 300; min-height: 100vh; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.3rem 2.5rem; border-bottom: 1px solid var(--border); background: rgba(13,13,13,0.92); backdrop-filter: blur(14px); }
+    .nav-brand { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.15rem; letter-spacing: 0.04em; color: var(--accent); text-decoration: none; white-space: nowrap; }
+    .nav-links { display: flex; gap: 0; list-style: none; }
+    .nav-links a, .nav-links .dropbtn { display: block; padding: 0.45rem 0.9rem; font-family: 'DM Mono', monospace; font-size: 0.68rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; background: none; border: none; cursor: pointer; transition: color 0.2s; white-space: nowrap; }
+    .nav-links a:hover, .nav-links .dropbtn:hover { color: var(--accent); }
+    .nav-links li { position: relative; }
+    .dropbtn::after { content: ' ▾'; font-size: 0.55rem; }
+    .dropdown-menu { display: none; position: absolute; top: calc(100% + 4px); right: 0; min-width: 210px; background: var(--surface); border: 1px solid var(--border); padding: 0.4rem 0; z-index: 200; }
+    .dropdown-menu a { display: block; padding: 0.45rem 1.3rem; font-size: 0.65rem; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; transition: color 0.18s, background 0.18s; }
+    .dropdown-menu a:hover { color: var(--accent); background: rgba(200,169,110,0.06); }
+    .nav-links li:hover .dropdown-menu { display: block; }
+
+    .page-hero { padding: 9rem 4rem 3rem; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(200,169,110,0.07) 0%, transparent 70%); pointer-events: none; }
+    .back-link { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; transition: color 0.2s; }
+    .back-link:hover { color: var(--accent); }
+    .page-tag { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+    .page-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.8rem, 6vw, 5.5rem); line-height: 1.05; color: var(--text); }
+    .page-title em { font-style: italic; color: var(--accent); }
+    .page-meta { display: flex; gap: 2rem; margin-top: 1.8rem; flex-wrap: wrap; }
+    .meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .meta-label { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+    .meta-value { font-size: 0.72rem; color: var(--accent); letter-spacing: 0.06em; }
+
+    .content { max-width: 900px; margin: 0 auto; padding: 4rem; }
+    .divider { width: 55px; height: 1px; background: var(--accent); margin: 2.5rem 0; }
+    .section-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .content h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2rem; color: var(--text); margin-bottom: 1rem; margin-top: 3rem; }
+    .content p { font-size: 0.76rem; line-height: 2.1; color: #b5afa8; margin-bottom: 1.2rem; }
+
+    /* VIDEO */
+    .video-section { margin-top: 3rem; }
+    .video-section h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2rem; color: var(--text); margin-bottom: 1.2rem; }
+    .video-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; border: 1px solid var(--border); background: var(--surface); }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+    .specs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; border: 1px solid var(--border); margin: 2rem 0; }
+    .spec-item { background: var(--surface); padding: 1.4rem; }
+    .spec-label { font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+    .spec-value { font-size: 0.75rem; color: var(--text); line-height: 1.6; }
+
+    .feature-list { list-style: none; margin: 1.5rem 0; }
+    .feature-list li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.73rem; color: #b5afa8; line-height: 1.7; display: flex; gap: 1rem; align-items: baseline; }
+    .feature-list li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
+
+    footer { border-top: 1px solid var(--border); padding: 1.8rem 4rem; display: flex; justify-content: space-between; align-items: center; margin-top: 4rem; }
+    footer span { font-size: 0.62rem; letter-spacing: 0.1em; color: var(--muted); }
+    .accent { color: var(--accent); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .page-hero > * { animation: fadeUp 0.7s ease both; }
+    .back-link { animation-delay: 0.1s; }
+    .page-tag { animation-delay: 0.2s; }
+    .page-title { animation-delay: 0.3s; }
+    .page-meta { animation-delay: 0.45s; }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="index.html">Ybrahim Alexander R. Calvo</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li>
+      <button class="dropbtn">Installations</button>
+      <div class="dropdown-menu">
+        <a href="win95.html">Windows 95</a>
+        <a href="winnt.html">Windows NT</a>
+        <a href="win98.html">Windows 98</a>
+        <a href="win2000.html">Windows Server 2000</a>
+        <a href="winme.html">Windows ME</a>
+        <a href="winxp.html">Windows XP</a>
+        <a href="win2003.html">Windows Server 2003</a>
+        <a href="winvista.html">Windows Vista</a>
+        <a href="win2008.html">Windows Server 2008</a>
+        <a href="win7.html">Windows 7</a>
+        <a href="win8.html">Windows 8</a>
+        <a href="win10.html">Windows 10</a>
+        <a href="win11.html">Windows 11</a>
+      </div>
+    </li>
+    <li><a href="#">Tasks</a></li>
+    <li><a href="#">Case Studies</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <a class="back-link" href="index.html">← Back to Home</a>
+  <p class="page-tag">Consumer & Professional OS — NT Family</p>
+  <h1 class="page-title">Windows 7</h1>
+  <div class="page-meta">
+    <div class="meta-item"><span class="meta-label">Released</span><span class="meta-value">October 22, 2009</span></div>
+    <div class="meta-item"><span class="meta-label">Kernel</span><span class="meta-value">Windows NT 6.1</span></div>
+    <div class="meta-item"><span class="meta-label">Support Ended</span><span class="meta-value">January 14, 2020</span></div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="divider"></div>
+  <p class="section-label">Introduction</p>
+  <p>Windows 7 is widely regarded as one of the finest operating systems Microsoft ever produced. Arriving as the immediate and welcome successor to the unpopular Vista, Windows 7 delivered everything Vista promised — stability, performance, and a refined interface — while dramatically reducing hardware demands and compatibility issues.</p>
+
+  <h2>Overview</h2>
+  <p>Released on October 22, 2009, Windows 7 was developed with a clear mandate: fix Vista. Microsoft worked closely with hardware and software vendors well before launch, ensuring broad compatibility from day one. The taskbar was completely redesigned with pinnable apps and Jump Lists. Libraries, HomeGroup networking, and improved multi-monitor support rounded out a release that IT professionals and home users alike praised enthusiastically.</p>
+
+  <div class="video-section">
+    <h2>Installation Video</h2>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/5tpgiP_0r4A" title="Windows 7 Installation Video" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+  </div>
+
+  <h2>System Requirements & Specifications</h2>
+  <div class="specs-grid">
+    <div class="spec-item"><div class="spec-label">CPU</div><div class="spec-value">1 GHz 32-bit or 64-bit</div></div><div class="spec-item"><div class="spec-label">RAM</div><div class="spec-value">1 GB (32-bit) / 2 GB (64-bit)</div></div><div class="spec-item"><div class="spec-label">Storage</div><div class="spec-value">16 GB (32-bit) / 20 GB (64-bit)</div></div><div class="spec-item"><div class="spec-label">Display</div><div class="spec-value">800×600 or higher</div></div><div class="spec-item"><div class="spec-label">Architecture</div><div class="spec-value">32-bit and 64-bit</div></div><div class="spec-item"><div class="spec-label">File System</div><div class="spec-value">NTFS</div></div><div class="spec-item"><div class="spec-label">Editions</div><div class="spec-value">Starter, Home Premium, Professional, Ultimate, Enterprise</div></div><div class="spec-item"><div class="spec-label">Max RAM</div><div class="spec-value">4 GB (32-bit), 192 GB (64-bit)</div></div>
+  </div>
+
+  <h2>Key Features</h2>
+  <ul class="feature-list">
+    <li>Redesigned 'Superbar' taskbar with pinnable apps, thumbnails, and Jump Lists</li><li>Aero Snap for easy window management (drag to edges to resize/maximize)</li><li>Aero Shake and Aero Peek for window management</li><li>HomeGroup for simplified home network file sharing</li><li>Libraries for organizing files across multiple locations</li><li>Improved performance and faster boot times compared to Vista</li><li>XP Mode (Professional+) for running XP virtualized for legacy apps</li><li>Device Stage for unified device management</li>
+  </ul>
+
+  <h2>Historical Notes</h2>
+  <p>Windows 7 became one of Microsoft's best-selling operating systems, surpassing Windows XP in market share in 2012 and remaining the world's most-used OS until 2018. Even after its January 2020 end-of-life, it retained significant market share. The OS is often held up as the gold standard for what a Windows release should be — a refinement rather than a revolution, delivered on time and with exceptional quality.</p>
+</div>
+
+<footer>
+  <span>© 2025 <span class="accent">Ybrahim Alexander R. Calvo</span></span>
+  <span>Windows 7 — Installation Documentation</span>
+</footer>
+</body>
+</html>
