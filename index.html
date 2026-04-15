@@ -87,6 +87,87 @@
       to   { transform: translate(-50%, -50%) rotate(360deg); }
     }
 
+    /* ── SLIDE ANIMATIONS ── */
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* Hero title — each line slides up with stagger */
+    .hero-line {
+      display: block;
+      overflow: hidden;
+    }
+
+    .hero-line-inner {
+      display: block;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-line-inner.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays for hero lines */
+    .hero-line:nth-child(1) .hero-line-inner { transition-delay: 0.1s; }
+    .hero-line:nth-child(2) .hero-line-inner { transition-delay: 0.28s; }
+    .hero-line:nth-child(3) .hero-line-inner { transition-delay: 0.46s; }
+
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition-delay: 0.7s;
+    }
+
+    .hero-sub.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Nav slide down */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -98,6 +179,14 @@
       border-bottom: 1px solid var(--border);
       background: rgba(6, 8, 16, 0.88);
       backdrop-filter: blur(14px);
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    nav.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .nav-brand {
@@ -130,9 +219,7 @@
       white-space: nowrap;
     }
 
-    .nav-links a:hover {
-      color: var(--accent2);
-    }
+    .nav-links a:hover { color: var(--accent2); }
 
     .hero {
       min-height: 100vh;
@@ -156,12 +243,29 @@
       font-style: italic;
     }
 
-    .hero-sub {
-      margin-top: 1.5rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
+    /* ── SCROLL-REVEAL for sections ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
     }
 
     section, footer {
@@ -193,6 +297,10 @@
       letter-spacing: 0.1em;
       color: var(--muted);
     }
+
+    /* Stagger delays for section children */
+    section h2 { transition-delay: 0s; }
+    section p  { transition-delay: 0.15s; }
   </style>
 </head>
 
@@ -208,9 +316,8 @@
   <div class="orbit mars"><span></span></div>
 </div>
 
-<nav>
+<nav id="main-nav">
   <a class="nav-brand" href="index.html">Ybrahim</a>
-
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="rotoscope-final.html">Rotoscope</a></li>
@@ -220,31 +327,36 @@
 </nav>
 
 <div class="hero">
-  <h1 class="hero-title">Ybrahim<br><em>Alexander</em><br>R. Calvo</h1>
+  <h1 class="hero-title">
+    <span class="hero-line"><span class="hero-line-inner">Ybrahim</span></span>
+    <span class="hero-line"><span class="hero-line-inner"><em>Alexander</em></span></span>
+    <span class="hero-line"><span class="hero-line-inner">R. Calvo</span></span>
+  </h1>
   <p class="hero-sub">Portfolio &mdash; 2025</p>
 </div>
 
 <section id="solar-system">
-  <h2>Solar System</h2>
-  <p>Interactive solar system background with animation.</p>
+  <h2 class="reveal-left">Solar System</h2>
+  <p class="reveal">Interactive solar system background with animation.</p>
 </section>
 
 <section id="rotoscoping">
-  <h2>Rotoscoping</h2>
-  <p>Frame-by-frame animation traced over live footage.</p>
+  <h2 class="reveal-left">Rotoscoping</h2>
+  <p class="reveal">Frame-by-frame animation traced over live footage.</p>
 </section>
 
 <section id="about">
-  <h2>About</h2>
-  <p>Hi, I'm Ybrahim — an artist and animator exploring the intersection of motion, science, and storytelling.</p>
+  <h2 class="reveal-left">About</h2>
+  <p class="reveal">Hi, I'm Ybrahim — an artist and animator exploring the intersection of motion, science, and storytelling.</p>
 </section>
 
-<footer>
+<footer class="reveal">
   <span>© 2025 Ybrahim</span>
   <span>Portfolio</span>
 </footer>
 
 <script>
+  /* ── Stars ── */
   const canvas = document.getElementById('stars-canvas');
   const ctx = canvas.getContext('2d');
   let stars = [];
@@ -283,10 +395,38 @@
     requestAnimationFrame(draw);
   }
 
-  resize();
-  initStars();
-  draw();
+  resize(); initStars(); draw();
   window.addEventListener('resize', () => { resize(); initStars(); });
+
+  /* ── Hero slide-in on load ── */
+  window.addEventListener('DOMContentLoaded', () => {
+    // Nav slides down
+    setTimeout(() => {
+      document.getElementById('main-nav').classList.add('visible');
+    }, 50);
+
+    // Hero title lines slide up
+    document.querySelectorAll('.hero-line-inner').forEach(el => {
+      el.classList.add('visible');
+    });
+
+    // Sub-text fades in
+    document.querySelector('.hero-sub').classList.add('visible');
+  });
+
+  /* ── Scroll reveal ── */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal, .reveal-left').forEach(el => {
+    revealObserver.observe(el);
+  });
 </script>
 
 </body>
