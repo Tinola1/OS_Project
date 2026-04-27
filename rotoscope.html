@@ -301,6 +301,43 @@ footer.visible{opacity:1;transform:translateY(0);}
   </div>
 </div>
 
+<!-- ── WEEK 1 PROGRESS ── -->
+<div class="credits-section" id="week1-section">
+  <div class="credits-header">
+    <span class="credits-label">Progress Update</span>
+    <h2 class="credits-title">Week 1</h2>
+  </div>
+
+  <div class="credits-body">
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/WEnUM7BWVTI"
+        title="Week 1 rotoscope progress"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="credit-details">
+      <div class="credit-row">
+        <label>Week</label>
+        <div class="credit-val">Week 1</div>
+        <p>First progress update for the rotoscoping project — initial frames and early motion study.</p>
+      </div>
+      <div class="credit-row">
+        <label>Stage</label>
+        <div class="credit-val">Early Development</div>
+        <p>Establishing the tracing workflow, frame rate, and overall movement approach from the reference footage.</p>
+      </div>
+      <div class="credit-row">
+        <label>Focus</label>
+        <div class="credit-val">Motion Study</div>
+        <p>Capturing the weight and rhythm of natural human movement as a foundation for the full sequence.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ── CREDITS ── -->
 <div class="credits-section" id="credits-section">
   <div class="credits-header">
@@ -357,7 +394,7 @@ const obs=new IntersectionObserver((entries)=>{
   });
 },{threshold:0.1});
 
-['frames-label','frame-grid','info-row','status-section','credits-section','footer'].forEach(id=>{
+['frames-label','frame-grid','info-row','status-section','week1-section','credits-section','footer'].forEach(id=>{
   const el=document.getElementById(id);
   if(el)obs.observe(el);
 });
