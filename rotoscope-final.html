@@ -382,6 +382,45 @@ footer.visible{opacity:1;transform:translateY(0);}
   </div>
 </div>
 
+<!-- ── WEEK 2 PROGRESS ── -->
+<div class="week-section" id="week2-section">
+  <div class="week-header">
+    <span class="week-badge">Week 2</span>
+    <div class="week-title">Progress Update <span>/ Rotoscoping</span></div>
+  </div>
+
+  <div class="video-wrap">
+    <iframe
+      src="https://www.youtube.com/embed/miXBe8mtREo?rel=0&modestbranding=1&color=white"
+      title="Rotoscope — Week 2 Progress"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="credits-strip">
+    <div class="credit-block">
+      <label>Progress</label>
+      <div class="credit-val">Week 2</div>
+      <div class="credit-note">Second week of rotoscoping — continued frames and refined motion study.</div>
+      <a class="credit-link" href="https://youtu.be/miXBe8mtREo?si=hBqPgPZhr149K8kl" target="_blank" rel="noopener noreferrer">
+        <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1V6" stroke="currentColor" stroke-width="1.2"/></svg>
+        View on YouTube
+      </a>
+    </div>
+    <div class="credit-block">
+      <label>Stage</label>
+      <div class="credit-val">In Progress</div>
+      <div class="credit-note">Building on Week 1 — developing fluidity, consistency of line, and sequence continuity.</div>
+    </div>
+    <div class="credit-block">
+      <label>Artist</label>
+      <div class="credit-val">Ybrahim A. Calvo</div>
+      <div class="credit-note">Frame-by-frame rotoscoping and digital line work.</div>
+    </div>
+  </div>
+</div>
+
 <!-- ── SOURCE REFERENCE ── -->
 <div class="week-section" id="source-section">
   <div class="week-header">
@@ -425,7 +464,7 @@ footer.visible{opacity:1;transform:translateY(0);}
   <span class="status-tag">In Development</span>
   <div class="status-text">
     <h2>More weeks coming soon.</h2>
-    <p>The full rotoscope sequence is being built week by week. Check back for Week 2 and beyond as the animation progresses.</p>
+    <p>The full rotoscope sequence is being built week by week. Check back for Week 3 and beyond as the animation progresses.</p>
   </div>
 </div>
 
@@ -448,7 +487,7 @@ const obs=new IntersectionObserver((entries)=>{
   });
 },{threshold:0.08});
 
-['frames-label','frame-grid','info-row','week1-section','source-section','status-section','footer'].forEach(id=>{
+['frames-label','frame-grid','info-row','week1-section','week2-section','source-section','status-section','footer'].forEach(id=>{
   const el=document.getElementById(id);if(el)obs.observe(el);
 });
 </script>
