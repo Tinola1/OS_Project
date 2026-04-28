@@ -31,6 +31,8 @@ body {
   pointer-events: none;
   z-index: 0;
 }
+
+/* ── Nav ── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -77,6 +79,7 @@ nav.visible { opacity: 1; transform: translateY(0); }
 .nav-links a:hover { color: var(--accent2); }
 .nav-links a.active { color: var(--accent2); }
 
+/* ── Hero ── */
 .hero {
   min-height: 100vh;
   padding: 8rem 4rem 4rem;
@@ -129,10 +132,101 @@ nav.visible { opacity: 1; transform: translateY(0); }
 }
 .hero-sub.visible { opacity: 1; transform: translateY(0); }
 
+/* ── Age Calculator ── */
+.calculator-section {
+  position: relative;
+  z-index: 2;
+  padding: 0 4rem 5rem;
+}
+.calculator-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2.5rem 3rem;
+  max-width: 700px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.calculator-box.visible { opacity: 1; transform: translateY(0); }
+.calculator-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.calculator-subtitle {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+}
+.calculator-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.calc-input-wrap {
+  flex: 1;
+  position: relative;
+}
+.calc-input-wrap label {
+  display: block;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  margin-bottom: 0.5rem;
+}
+.calc-input {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.calc-input:focus { border-color: var(--accent2); }
+.calc-input::placeholder { color: var(--muted); }
+.calc-btn {
+  background: var(--accent2);
+  color: #060810;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.8rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+  margin-top: 1.3rem;
+}
+.calc-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+.calc-btn:active { transform: translateY(0); }
+.calc-hint {
+  margin-top: 1rem;
+  font-size: 0.58rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+.calc-hint span {
+  color: var(--accent2);
+}
+
+/* ── Section Header ── */
 .section-header {
   position: relative;
   z-index: 2;
-  padding: 6rem 4rem 3rem;
+  padding: 4rem 4rem 3rem;
   border-top: 1px solid var(--border);
 }
 .section-header h2 {
@@ -158,6 +252,7 @@ nav.visible { opacity: 1; transform: translateY(0); }
 }
 .section-header p.visible { opacity: 1; transform: translateY(0); }
 
+/* ── Planet Cards Grid ── */
 .planets-grid {
   position: relative;
   z-index: 2;
@@ -189,6 +284,7 @@ nav.visible { opacity: 1; transform: translateY(0); }
 .planet-card:nth-child(6) { transition-delay: 0.3s; }
 .planet-card:nth-child(7) { transition-delay: 0.35s; }
 .planet-card:nth-child(8) { transition-delay: 0.4s; }
+.planet-card:nth-child(9) { transition-delay: 0.45s; }
 .planet-header {
   display: flex;
   justify-content: space-between;
@@ -243,6 +339,10 @@ nav.visible { opacity: 1; transform: translateY(0); }
   font-size: 0.75rem;
   color: var(--ink);
   font-weight: 400;
+  transition: color 0.3s ease;
+}
+.planet-stat .value.updated {
+  color: var(--accent2);
 }
 .planet-description {
   font-size: 0.68rem;
@@ -252,6 +352,7 @@ nav.visible { opacity: 1; transform: translateY(0); }
   padding-top: 1.2rem;
 }
 
+/* ── Stats Overview ── */
 .stats-overview {
   position: relative;
   z-index: 2;
@@ -299,6 +400,10 @@ footer.visible { opacity: 1; transform: translateY(0); }
   .planets-grid { grid-template-columns: 1fr; padding: 3rem 2rem 6rem; }
   .hero { padding: 6rem 2rem 3rem; }
   .section-header { padding: 4rem 2rem 2rem; }
+  .calculator-section { padding: 0 2rem 4rem; }
+  .calculator-box { padding: 1.8rem; }
+  .calculator-row { flex-direction: column; align-items: stretch; }
+  .calc-btn { margin-top: 0; }
   .stats-overview { padding: 2rem 2rem; gap: 2rem; }
   footer { flex-direction: column; gap: 0.5rem; padding: 2rem 2rem; }
 }
@@ -327,6 +432,23 @@ footer.visible { opacity: 1; transform: translateY(0); }
   <p class="hero-sub" id="hero-sub">An interactive model of our solar system — orbits, periods, and scale rendered with scientific precision. Motion as mathematics, space as canvas.</p>
 </div>
 
+<!-- ── Age Calculator ── -->
+<div class="calculator-section">
+  <div class="calculator-box" id="calc-box">
+    <div class="calculator-title">Calculate Time & Motion</div>
+    <div class="calculator-subtitle">Enter your age in Earth years</div>
+    <div class="calculator-row">
+      <div class="calc-input-wrap">
+        <label for="earth-age">Your Age — Earth Years</label>
+        <input class="calc-input" type="number" id="earth-age" min="0" max="200" placeholder="Enter Earth Years to see how time passes on other Planets" />
+      </div>
+      <button class="calc-btn" onclick="calculateAges()">Calculate</button>
+    </div>
+    <p class="calc-hint">↳ Updates <span>age, revolutions & orbital period</span> across all planet cards</p>
+  </div>
+</div>
+
+<!-- ── Section Header ── -->
 <div class="section-header">
   <h2 id="section-title">The Planets</h2>
   <p id="section-desc">Eight worlds, each with unique characteristics, orbiting our star in a carefully choreographed cosmic dance that has persisted for billions of years.</p>
@@ -346,7 +468,7 @@ footer.visible { opacity: 1; transform: translateY(0); }
       </video>
     </div>
     <div class="planet-stats">
-      <div class="planet-stat"><label>Age</label><div class="value">4.6 billion years</div></div>
+      <div class="planet-stat"><label>Age</label><div class="value" id="sun-age">4.6 billion years</div></div>
       <div class="planet-stat"><label>Type</label><div class="value">G-type Main Sequence</div></div>
       <div class="planet-stat"><label>Mass</label><div class="value">1.989 × 10³⁰ kg</div></div>
       <div class="planet-stat"><label>Diameter</label><div class="value">1.392 million km</div></div>
@@ -366,9 +488,9 @@ footer.visible { opacity: 1; transform: translateY(0); }
       </video>
     </div>
     <div class="planet-stats">
-      <div class="planet-stat"><label>Age</label><div class="value">4.5 billion years</div></div>
-      <div class="planet-stat"><label>Revolution</label><div class="value">88 days</div></div>
-      <div class="planet-stat"><label>Orbital Period</label><div class="value">88 Earth days</div></div>
+      <div class="planet-stat"><label>Age</label><div class="value" id="mercury-age">4.5 billion years</div></div>
+      <div class="planet-stat"><label>Revolutions</label><div class="value" id="mercury-rev">—</div></div>
+      <div class="planet-stat"><label>Orbital Period</label><div class="value" id="mercury-orb">88 Earth days</div></div>
       <div class="planet-stat"><label>Distance from Sun</label><div class="value">57.9 million km</div></div>
     </div>
     <p class="planet-description">The smallest and innermost planet, Mercury has extreme temperature variations and a surface scarred by countless impact craters.</p>
@@ -386,9 +508,9 @@ footer.visible { opacity: 1; transform: translateY(0); }
       </video>
     </div>
     <div class="planet-stats">
-      <div class="planet-stat"><label>Age</label><div class="value">4.5 billion years</div></div>
-      <div class="planet-stat"><label>Revolution</label><div class="value">243 days</div></div>
-      <div class="planet-stat"><label>Orbital Period</label><div class="value">225 Earth days</div></div>
+      <div class="planet-stat"><label>Age</label><div class="value" id="venus-age">4.5 billion years</div></div>
+      <div class="planet-stat"><label>Revolutions</label><div class="value" id="venus-rev">—</div></div>
+      <div class="planet-stat"><label>Orbital Period</label><div class="value" id="venus-orb">225 Earth days</div></div>
       <div class="planet-stat"><label>Distance from Sun</label><div class="value">108.2 million km</div></div>
     </div>
     <p class="planet-description">Often called Earth's twin, Venus is shrouded in thick toxic clouds and has a runaway greenhouse effect making it the hottest planet.</p>
@@ -406,9 +528,9 @@ footer.visible { opacity: 1; transform: translateY(0); }
       </video>
     </div>
     <div class="planet-stats">
-      <div class="planet-stat"><label>Age</label><div class="value">4.5 billion years</div></div>
-      <div class="planet-stat"><label>Revolution</label><div class="value">24 hours</div></div>
-      <div class="planet-stat"><label>Orbital Period</label><div class="value">365.25 Earth days</div></div>
+      <div class="planet-stat"><label>Age</label><div class="value" id="earth-age-val">4.5 billion years</div></div>
+      <div class="planet-stat"><label>Revolutions</label><div class="value" id="earth-rev">—</div></div>
+      <div class="planet-stat"><label>Orbital Period</label><div class="value" id="earth-orb">365.25 Earth days</div></div>
       <div class="planet-stat"><label>Distance from Sun</label><div class="value">149.6 million km</div></div>
     </div>
     <p class="planet-description">Our home planet is the only known place in the universe confirmed to host life, with vast oceans and a protective atmosphere.</p>
@@ -426,9 +548,9 @@ footer.visible { opacity: 1; transform: translateY(0); }
       </video>
     </div>
     <div class="planet-stats">
-      <div class="planet-stat"><label>Age</label><div class="value">4.6 billion years</div></div>
-      <div class="planet-stat"><label>Revolution</label><div class="value">24.6 hours</div></div>
-      <div class="planet-stat"><label>Orbital Period</label><div class="value">687 Earth days</div></div>
+      <div class="planet-stat"><label>Age</label><div class="value" id="mars-age">4.6 billion years</div></div>
+      <div class="planet-stat"><label>Revolutions</label><div class="value" id="mars-rev">—</div></div>
+      <div class="planet-stat"><label>Orbital Period</label><div class="value" id="mars-orb">687 Earth days</div></div>
       <div class="planet-stat"><label>Distance from Sun</label><div class="value">227.9 million km</div></div>
     </div>
     <p class="planet-description">The Red Planet features the largest volcano in the solar system and polar ice caps that contain frozen water and carbon dioxide.</p>
@@ -446,15 +568,15 @@ footer.visible { opacity: 1; transform: translateY(0); }
       </video>
     </div>
     <div class="planet-stats">
-      <div class="planet-stat"><label>Age</label><div class="value">4.6 billion years</div></div>
-      <div class="planet-stat"><label>Revolution</label><div class="value">9.9 hours</div></div>
-      <div class="planet-stat"><label>Orbital Period</label><div class="value">11.86 Earth years</div></div>
+      <div class="planet-stat"><label>Age</label><div class="value" id="jupiter-age">4.6 billion years</div></div>
+      <div class="planet-stat"><label>Revolutions</label><div class="value" id="jupiter-rev">—</div></div>
+      <div class="planet-stat"><label>Orbital Period</label><div class="value" id="jupiter-orb">11.86 Earth years</div></div>
       <div class="planet-stat"><label>Distance from Sun</label><div class="value">778.5 million km</div></div>
     </div>
     <p class="planet-description">The largest planet in our solar system, Jupiter's Great Red Spot is a storm larger than Earth that has raged for centuries.</p>
   </div>
 
-  <!-- Saturn (no video uploaded — using NASA image) -->
+  <!-- Saturn -->
   <div class="planet-card">
     <div class="planet-header">
       <h3 class="planet-name">Saturn</h3>
@@ -464,9 +586,9 @@ footer.visible { opacity: 1; transform: translateY(0); }
       <img src="https://science.nasa.gov/wp-content/uploads/2023/06/saturn-equinox-pia11141.jpg" alt="Saturn">
     </div>
     <div class="planet-stats">
-      <div class="planet-stat"><label>Age</label><div class="value">4.5 billion years</div></div>
-      <div class="planet-stat"><label>Revolution</label><div class="value">10.7 hours</div></div>
-      <div class="planet-stat"><label>Orbital Period</label><div class="value">29.46 Earth years</div></div>
+      <div class="planet-stat"><label>Age</label><div class="value" id="saturn-age">4.5 billion years</div></div>
+      <div class="planet-stat"><label>Revolutions</label><div class="value" id="saturn-rev">—</div></div>
+      <div class="planet-stat"><label>Orbital Period</label><div class="value" id="saturn-orb">29.46 Earth years</div></div>
       <div class="planet-stat"><label>Distance from Sun</label><div class="value">1.43 billion km</div></div>
     </div>
     <p class="planet-description">Adorned with spectacular ring systems made of ice and rock, Saturn is the second-largest planet and could float in water.</p>
@@ -484,9 +606,9 @@ footer.visible { opacity: 1; transform: translateY(0); }
       </video>
     </div>
     <div class="planet-stats">
-      <div class="planet-stat"><label>Age</label><div class="value">4.5 billion years</div></div>
-      <div class="planet-stat"><label>Revolution</label><div class="value">17.2 hours</div></div>
-      <div class="planet-stat"><label>Orbital Period</label><div class="value">84 Earth years</div></div>
+      <div class="planet-stat"><label>Age</label><div class="value" id="uranus-age">4.5 billion years</div></div>
+      <div class="planet-stat"><label>Revolutions</label><div class="value" id="uranus-rev">—</div></div>
+      <div class="planet-stat"><label>Orbital Period</label><div class="value" id="uranus-orb">84 Earth years</div></div>
       <div class="planet-stat"><label>Distance from Sun</label><div class="value">2.87 billion km</div></div>
     </div>
     <p class="planet-description">The tilted ice giant rotates on its side, possibly due to a massive collision in its past, giving it extreme seasonal variations.</p>
@@ -504,9 +626,9 @@ footer.visible { opacity: 1; transform: translateY(0); }
       </video>
     </div>
     <div class="planet-stats">
-      <div class="planet-stat"><label>Age</label><div class="value">4.5 billion years</div></div>
-      <div class="planet-stat"><label>Revolution</label><div class="value">16.1 hours</div></div>
-      <div class="planet-stat"><label>Orbital Period</label><div class="value">164.8 Earth years</div></div>
+      <div class="planet-stat"><label>Age</label><div class="value" id="neptune-age">4.5 billion years</div></div>
+      <div class="planet-stat"><label>Revolutions</label><div class="value" id="neptune-rev">—</div></div>
+      <div class="planet-stat"><label>Orbital Period</label><div class="value" id="neptune-orb">164.8 Earth years</div></div>
       <div class="planet-stat"><label>Distance from Sun</label><div class="value">4.50 billion km</div></div>
     </div>
     <p class="planet-description">The outermost planet features the fastest winds in the solar system and a deep blue color from methane in its atmosphere.</p>
@@ -527,7 +649,60 @@ footer.visible { opacity: 1; transform: translateY(0); }
 </footer>
 
 <script>
-/* Stars Background */
+/* ── Planet data: orbital periods in Earth years ── */
+const planets = {
+  mercury: { orbitalYears: 88 / 365.25,   orbLabel: '88 Earth days',      ageDefault: '4.5 billion years' },
+  venus:   { orbitalYears: 224.7 / 365.25, orbLabel: '225 Earth days',     ageDefault: '4.5 billion years' },
+  earth:   { orbitalYears: 1,               orbLabel: '365.25 Earth days',  ageDefault: '4.5 billion years' },
+  mars:    { orbitalYears: 1.881,           orbLabel: '687 Earth days',     ageDefault: '4.6 billion years' },
+  jupiter: { orbitalYears: 11.86,           orbLabel: '11.86 Earth years',  ageDefault: '4.6 billion years' },
+  saturn:  { orbitalYears: 29.46,           orbLabel: '29.46 Earth years',  ageDefault: '4.5 billion years' },
+  uranus:  { orbitalYears: 84.01,           orbLabel: '84 Earth years',     ageDefault: '4.5 billion years' },
+  neptune: { orbitalYears: 164.8,           orbLabel: '164.8 Earth years',  ageDefault: '4.5 billion years' },
+};
+
+function flash(el) {
+  el.classList.remove('updated');
+  void el.offsetWidth; /* reflow to restart animation */
+  el.classList.add('updated');
+  setTimeout(() => el.classList.remove('updated'), 1200);
+}
+
+function setVal(id, text) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.textContent = text;
+  flash(el);
+}
+
+function calculateAges() {
+  const raw = parseFloat(document.getElementById('earth-age').value);
+  if (isNaN(raw) || raw < 0) return;
+
+  const earthYears = raw;
+
+  /* Sun — age stays fixed, no revolutions */
+  setVal('sun-age', earthYears.toFixed(2) + ' years old on Earth');
+
+  Object.entries(planets).forEach(([key, data]) => {
+    const revolutions = earthYears / data.orbitalYears;
+    const ageOnPlanet  = earthYears / data.orbitalYears; /* same as revolutions */
+
+    setVal(`${key}-age`, ageOnPlanet.toFixed(2) + ` yrs (${key} time)`);
+    setVal(`${key}-rev`, revolutions.toFixed(2) + ' orbits');
+    setVal(`${key}-orb`, data.orbLabel);
+  });
+
+  /* Scroll to cards */
+  document.getElementById('planets-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* Allow Enter key to trigger calculate */
+document.getElementById('earth-age').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') calculateAges();
+});
+
+/* ── Stars Background ── */
 const canvas = document.getElementById('stars-canvas');
 const ctx = canvas.getContext('2d');
 let stars = [], tick = 0;
@@ -568,7 +743,7 @@ resize();
 draw();
 window.addEventListener('resize', resize);
 
-/* Slide-in animations on load */
+/* ── Slide-in animations on load ── */
 window.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => document.getElementById('main-nav').classList.add('visible'), 50);
   document.getElementById('pg-label').classList.add('visible');
@@ -576,15 +751,22 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('hero-sub').classList.add('visible');
 });
 
-/* Scroll-triggered reveal */
+/* ── Scroll-triggered reveal ── */
 const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
   });
-}, { threshold: 0.15 });
-['section-title', 'section-desc'].forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
+}, { threshold: 0.1 });
+
+['section-title', 'section-desc', 'calc-box'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) obs.observe(el);
+});
 document.querySelectorAll('.planet-card').forEach(card => obs.observe(card));
-['stats-overview', 'footer'].forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
+['stats-overview', 'footer'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) obs.observe(el);
+});
 </script>
 </body>
 </html>
