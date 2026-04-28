@@ -246,7 +246,8 @@
       background: #000;
     }
 
-    .planet-visual img {
+    .planet-visual img,
+    .planet-visual video {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -396,7 +397,10 @@
       <span class="planet-type">Star</span>
     </div>
     <div class="planet-visual">
-      <img src="https://science.nasa.gov/wp-content/uploads/2023/09/sun-full-disk-ultra-violet-171.jpg" alt="Sun">
+      <video class="planet-video" loop muted playsinline>
+        <source src="https://drive.google.com/uc?export=download&id=1Kd_RIHF9WQby5dRhX0zDox0hSTwMh3VU" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
     <div class="planet-stats">
       <div class="planet-stat">
@@ -416,7 +420,7 @@
         <div class="value">1.392 million km</div>
       </div>
     </div>
-    <p class="planet-description">The smallest and innermost planet, Mercury has extreme temperature variations and a surface scarred by countless impact craters.</p>
+    <p class="planet-description">Our star, the Sun, is a massive ball of plasma that provides the energy needed for life on Earth through nuclear fusion.</p>
   </div>
 
   <!-- Mercury -->
@@ -426,7 +430,10 @@
       <span class="planet-type">Terrestrial</span>
     </div>
     <div class="planet-visual">
-      <img src="https://science.nasa.gov/wp-content/uploads/2023/05/mercury-messenger-globe-pia15162.jpg" alt="Mercury">
+      <video class="planet-video" loop muted playsinline>
+        <source src="https://drive.google.com/uc?export=download&id=1LdtX75yA5SE9V2pwU3XSCe7QIIEZOYit" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
     <div class="planet-stats">
       <div class="planet-stat">
@@ -456,7 +463,10 @@
       <span class="planet-type">Terrestrial</span>
     </div>
     <div class="planet-visual">
-      <img src="https://science.nasa.gov/wp-content/uploads/2023/06/venus-mariner-10-pia23791.jpg" alt="Venus">
+      <video class="planet-video" loop muted playsinline>
+        <source src="https://drive.google.com/uc?export=download&id=1Z64VF8C4FZKI6LwXx2v8yApazrg36NuV" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
     <div class="planet-stats">
       <div class="planet-stat">
@@ -479,19 +489,21 @@
     <p class="planet-description">Often called Earth's twin, Venus is shrouded in thick toxic clouds and has a runaway greenhouse effect making it the hottest planet.</p>
   </div>
 
-  <!-- Earth (with YouTube video) -->
+  <!-- Earth (with video) -->
   <div class="planet-card">
     <div class="planet-header">
       <h3 class="planet-name">Earth</h3>
       <span class="planet-type">Terrestrial (Reference)</span>
     </div>
     <div class="planet-visual" id="earth-video-container">
-      <iframe 
-        id="earth-video"
-        src="https://www.youtube.com/embed/15kTv986f9s?enablejsapi=1&controls=0&modestbranding=1&rel=0&showinfo=0&mute=1"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+      <video 
+        class="planet-video"
+        loop 
+        muted 
+        playsinline>
+        <source src="https://drive.google.com/uc?export=download&id=1jcf5SWG71KVcAhJOLvOIGQcDCFduYs68" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
     <div class="planet-stats">
       <div class="planet-stat">
@@ -521,7 +533,10 @@
       <span class="planet-type">Terrestrial</span>
     </div>
     <div class="planet-visual">
-      <img src="https://science.nasa.gov/wp-content/uploads/2023/09/mars-full-disk-valles-marineris-enhanced.jpg" alt="Mars">
+      <video class="planet-video" loop muted playsinline>
+        <source src="https://drive.google.com/uc?export=download&id=1Nq4bxjT7_z5KGaZwItkjBODs7T4dPyIT" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
     <div class="planet-stats">
       <div class="planet-stat">
@@ -551,7 +566,10 @@
       <span class="planet-type">Gas Giant</span>
     </div>
     <div class="planet-visual">
-      <img src="https://science.nasa.gov/wp-content/uploads/2023/06/jupiter-marble-pia22946.jpg" alt="Jupiter">
+      <video class="planet-video" loop muted playsinline>
+        <source src="https://drive.google.com/uc?export=download&id=1n7i67NnZYyOTdxZUAlojdWKLcVqrK2OD" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
     <div class="planet-stats">
       <div class="planet-stat">
@@ -611,7 +629,10 @@
       <span class="planet-type">Ice Giant</span>
     </div>
     <div class="planet-visual">
-      <img src="https://science.nasa.gov/wp-content/uploads/2023/06/uranus-voyager2-pia18182.jpg" alt="Uranus">
+      <video class="planet-video" loop muted playsinline>
+        <source src="https://drive.google.com/uc?export=download&id=1knfZwA0mWUZBgIV3ErJWMqm5I3vPAfwa" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
     <div class="planet-stats">
       <div class="planet-stat">
@@ -641,7 +662,10 @@
       <span class="planet-type">Ice Giant</span>
     </div>
     <div class="planet-visual">
-      <img src="https://science.nasa.gov/wp-content/uploads/2023/06/neptune-voyager2-pia01492.jpg" alt="Neptune">
+      <video class="planet-video" loop muted playsinline>
+        <source src="https://drive.google.com/uc?export=download&id=17OguaTLKsKYQz3xcbkuNK2f1Nbk4Aqy6" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
     <div class="planet-stats">
       <div class="planet-stat">
@@ -724,34 +748,23 @@
   draw();
   window.addEventListener('resize', resize);
 
-  /* YouTube API Integration */
-  let player;
-  
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('earth-video', {
-      events: {
-        'onReady': onPlayerReady
-      }
-    });
-  }
-  
-  function onPlayerReady(event) {
-    const container = document.getElementById('earth-video-container');
+  /* Video hover-to-play functionality */
+  document.addEventListener('DOMContentLoaded', () => {
+    const planetVideos = document.querySelectorAll('.planet-video');
     
-    container.addEventListener('mouseenter', function() {
-      player.playVideo();
+    planetVideos.forEach(video => {
+      const container = video.closest('.planet-visual');
+      
+      container.addEventListener('mouseenter', function() {
+        video.play();
+      });
+      
+      container.addEventListener('mouseleave', function() {
+        video.pause();
+        video.currentTime = 0; // Reset to beginning
+      });
     });
-    
-    container.addEventListener('mouseleave', function() {
-      player.pauseVideo();
-    });
-  }
-  
-  // Load YouTube API
-  const tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  const firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  });
 
   /* Slide-in animations on load */
   window.addEventListener('DOMContentLoaded', () => {
