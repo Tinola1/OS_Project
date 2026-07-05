@@ -131,6 +131,70 @@ nav.visible{opacity:1;transform:translateY(0);}
 .info-stat label{display:block;font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;}
 .info-stat .val{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--ink);}
 
+/* ── SOURCE REFERENCE ── */
+.source-section{
+  position:relative;z-index:2;
+  padding:5rem 3rem;
+  border-top:1px solid var(--border);
+  opacity:0;transform:translateY(24px);
+  transition:opacity 0.8s ease,transform 0.8s ease;
+}
+.source-section.visible{opacity:1;transform:translateY(0);}
+
+.source-header{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  align-items:baseline;
+  gap:2rem;
+  margin-bottom:2.5rem;
+}
+.source-badge{
+  font-size:0.52rem;letter-spacing:0.24em;text-transform:uppercase;
+  color:var(--muted);background:var(--border);
+  padding:0.3rem 0.8rem;
+  white-space:nowrap;align-self:center;
+}
+.source-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.6rem,3.5vw,2.6rem);
+  font-weight:300;color:var(--ink);
+}
+.source-title span{
+  font-size:0.6rem;
+  font-family:'DM Mono',monospace;
+  color:var(--muted);
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  margin-left:1.5rem;
+  vertical-align:middle;
+}
+
+/* Credits flush under video */
+.credits-strip{
+  margin-top:1px;
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);border-top:none;
+}
+.credit-block{background:var(--bg);padding:1.5rem 1.8rem;}
+.credit-block label{
+  display:block;font-size:0.48rem;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;
+}
+.credit-block .credit-val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;font-weight:400;color:var(--ink);line-height:1.4;
+}
+.credit-block .credit-note{margin-top:0.4rem;font-size:0.55rem;color:var(--muted);line-height:1.7;}
+.credit-link{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  margin-top:0.7rem;border-bottom:1px solid var(--border);padding-bottom:0.15rem;
+  transition:color 0.2s ease,border-color 0.2s ease;
+}
+.credit-link:hover{color:var(--ink);border-color:var(--muted);}
+
 /* ── WEEKS GRID CONTAINER ── */
 .weeks-container{
   position:relative;z-index:2;
@@ -217,89 +281,6 @@ nav.visible{opacity:1;transform:translateY(0);}
   margin-top:0.8rem;
 }
 .credit-link:hover{color:var(--ink);border-color:var(--muted);}
-
-/* ── SOURCE REFERENCE ── */
-.source-section{
-  position:relative;z-index:2;
-  padding:5rem 3rem;
-  border-top:1px solid var(--border);
-  opacity:0;transform:translateY(24px);
-  transition:opacity 0.8s ease,transform 0.8s ease;
-}
-.source-section.visible{opacity:1;transform:translateY(0);}
-
-.source-header{
-  display:grid;
-  grid-template-columns:auto 1fr;
-  align-items:baseline;
-  gap:2rem;
-  margin-bottom:2.5rem;
-}
-.source-badge{
-  font-size:0.52rem;letter-spacing:0.24em;text-transform:uppercase;
-  color:var(--muted);background:var(--border);
-  padding:0.3rem 0.8rem;
-  white-space:nowrap;align-self:center;
-}
-.source-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.6rem,3.5vw,2.6rem);
-  font-weight:300;color:var(--ink);
-}
-.source-title span{
-  font-size:0.6rem;
-  font-family:'DM Mono',monospace;
-  color:var(--muted);
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  margin-left:1.5rem;
-  vertical-align:middle;
-}
-
-/* Credits flush under video */
-.credits-strip{
-  margin-top:1px;
-  display:grid;grid-template-columns:1fr 1fr 1fr;
-  gap:1px;background:var(--border);
-  border:1px solid var(--border);border-top:none;
-}
-.credit-block{background:var(--bg);padding:1.5rem 1.8rem;}
-.credit-block label{
-  display:block;font-size:0.48rem;letter-spacing:0.22em;
-  text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;
-}
-.credit-block .credit-val{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.05rem;font-weight:400;color:var(--ink);line-height:1.4;
-}
-.credit-block .credit-note{margin-top:0.4rem;font-size:0.55rem;color:var(--muted);line-height:1.7;}
-.credit-link{
-  display:inline-flex;align-items:center;gap:0.4rem;
-  font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--muted);text-decoration:none;
-  margin-top:0.7rem;border-bottom:1px solid var(--border);padding-bottom:0.15rem;
-  transition:color 0.2s ease,border-color 0.2s ease;
-}
-.credit-link:hover{color:var(--ink);border-color:var(--muted);}
-
-/* ── STATUS ── */
-.status-section{
-  position:relative;z-index:2;padding:5rem 3rem;border-top:1px solid var(--border);
-  display:flex;align-items:flex-start;gap:6rem;
-  opacity:0;transform:translateY(20px);
-  transition:opacity 0.7s ease,transform 0.7s ease;
-}
-.status-section.visible{opacity:1;transform:translateY(0);}
-.status-tag{
-  font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--accent);border:1px solid var(--accent);
-  padding:0.35rem 0.8rem;white-space:nowrap;align-self:flex-start;
-}
-.status-text h2{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:300;color:var(--ink);margin-bottom:1rem;
-}
-.status-text p{font-size:0.68rem;line-height:1.9;color:var(--muted);max-width:380px;}
 
 /* ── APPS USED ── */
 .apps-section{
@@ -431,6 +412,25 @@ nav.visible{opacity:1;transform:translateY(0);}
 }
 .tutorial-step:hover .step-img-col img{transform:scale(1.02);}
 
+/* ── STATUS ── */
+.status-section{
+  position:relative;z-index:2;padding:5rem 3rem;border-top:1px solid var(--border);
+  display:flex;align-items:flex-start;gap:6rem;
+  opacity:0;transform:translateY(20px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.status-section.visible{opacity:1;transform:translateY(0);}
+.status-tag{
+  font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--accent);border:1px solid var(--accent);
+  padding:0.35rem 0.8rem;white-space:nowrap;align-self:flex-start;
+}
+.status-text h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:300;color:var(--ink);margin-bottom:1rem;
+}
+.status-text p{font-size:0.68rem;line-height:1.9;color:var(--muted);max-width:380px;}
+
 /* ── FOOTER ── */
 footer{
   position:relative;z-index:2;padding:1.5rem 3rem;
@@ -444,6 +444,9 @@ footer.visible{opacity:1;transform:translateY(0);}
 
 @media(max-width:1024px){
   .weeks-grid{grid-template-columns:repeat(2,1fr);gap:1.5rem;}
+}
+
+@media(max-width:1024px){
   .tutorial-step{grid-template-columns:60px 1fr;}
   .step-img-col{display:none;}
 }
@@ -517,7 +520,7 @@ footer.visible{opacity:1;transform:translateY(0);}
           <line x1="10" y1="70" x2="50" y2="70" stroke="#e8e3d8" stroke-width="1"/>
           <line x1="30" y1="20" x2="30" y2="70" stroke="#e8e3d8" stroke-width="1"/>
           <circle cx="30" cy="16" r="5" fill="none" stroke="#e8e3d8" stroke-width="1"/>
-          <line x1="20" y1="42" x2="40" y2="42" stroke="#e8e3d8" stroke-width="0.8"/>
+          <line x1="20" y1="40" x2="40" y2="40" stroke="#e8e3d8" stroke-width="0.8"/>
         </svg>
       </div>
       <div class="frame-num">01</div>
@@ -562,6 +565,70 @@ footer.visible{opacity:1;transform:translateY(0);}
   <div class="info-stat"><label>Technique</label><div class="val">Rotoscope</div></div>
   <div class="info-stat"><label>Medium</label><div class="val">Digital</div></div>
   <div class="info-stat"><label>Project</label><div class="val">01</div></div>
+</div>
+
+<!-- ── FINAL VIDEO ── -->
+<div class="source-section" id="final-video-section" style="border-top:1px solid var(--border);">
+  <div class="source-header">
+    <span class="source-badge">Complete</span>
+    <div class="source-title">Final Cut <span>/ 1 Minute Video</span></div>
+  </div>
+
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/JFszwNhNt40?rel=0&modestbranding=1&color=white" title="Rotoscope Final 1 Minute Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
+  <div class="credits-strip">
+    <div class="credit-block">
+      <label>Status</label>
+      <div class="credit-val">Complete Sequence</div>
+      <div class="credit-note">The final compiled rotoscope animation — one continuous minute of frame-by-frame traced motion.</div>
+    </div>
+    <div class="credit-block">
+      <label>Duration</label>
+      <div class="credit-val">1 Minute</div>
+      <div class="credit-note">Combined from 12 weeks of progressive animation work.</div>
+    </div>
+    <div class="credit-block">
+      <label>Animated by</label>
+      <div class="credit-val">Ybrahim A. Calvo</div>
+      <div class="credit-note">Frame-by-frame rotoscoping and digital animation composition.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── REFERENCE FOOTAGE ── -->
+<div class="source-section" id="source-section">
+  <div class="source-header">
+    <span class="source-badge">Source</span>
+    <div class="source-title">Reference Footage <span>/ Original Video</span></div>
+  </div>
+
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/XmsuKrjB3SI?rel=0&modestbranding=1&color=white" title="Rotoscope Reference — Source Footage" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
+  <div class="credits-strip">
+    <div class="credit-block">
+      <label>Credits to the Owner</label>
+      <div class="credit-val">Original Creator</div>
+      <div class="credit-note">Source footage used as rotoscoping reference. All rights belong to the original owner. Full credit and gratitude to the creator of this reference material.</div>
+      <a class="credit-link" href="https://youtu.be/XmsuKrjB3SI?si=rHhlIJDdUa12ypTf" target="_blank" rel="noopener noreferrer">
+        <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1V6" stroke="currentColor" stroke-width="1.2"/></svg>
+        View on YouTube
+      </a>
+    </div>
+    <div class="credit-block">
+      <label>Usage</label>
+      <div class="credit-val">Educational</div>
+      <div class="credit-note">Referenced solely for animation study and academic practice purposes.</div>
+    </div>
+    <div class="credit-block">
+      <label>Rotoscoped by</label>
+      <div class="credit-val">Ybrahim A. Calvo</div>
+      <div class="credit-note">Frame-by-frame drawing and digital line work traced over the reference footage.</div>
+    </div>
+  </div>
 </div>
 
 <!-- ── APPS USED ── -->
@@ -701,10 +768,12 @@ footer.visible{opacity:1;transform:translateY(0);}
   </div>
 </section>
 
+<!-- ── WEEKLY PROGRESS ── -->
 <div class="weeks-container" id="weeks-container">
   <h2 class="weeks-grid-title" id="weeks-title">Weekly Progress</h2>
   <div class="weeks-grid" id="weeks-grid">
     
+    <!-- Weekly Progress Videos -->
     <div class="week-card">
       <span class="week-badge">Week 1</span>
       <h3 class="week-card-title">Rotoscope PL1</h3>
@@ -755,127 +824,14 @@ footer.visible{opacity:1;transform:translateY(0);}
       <a class="credit-link" href="https://youtu.be/83239MIUI2M" target="_blank" rel="noopener noreferrer"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1V6" stroke="currentColor" stroke-width="1.2"/></svg>Watch</a>
     </div>
 
-    <div class="week-card">
-      <span class="week-badge">Week 6</span>
-      <h3 class="week-card-title">Rotoscope PL6</h3>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/g2y42rmSEjw?rel=0&modestbranding=1&color=white" title="Rotoscope — Week 6" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-      <p class="week-card-meta"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1"/></svg>In Progress</p>
-      <a class="credit-link" href="https://youtu.be/g2y42rmSEjw" target="_blank" rel="noopener noreferrer"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1V6" stroke="currentColor" stroke-width="1.2"/></svg>Watch</a>
-    </div>
-
-    <div class="week-card">
-      <span class="week-badge">Week 7</span>
-      <h3 class="week-card-title">Rotoscope PL7</h3>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/GVSKDEE_AaM?rel=0&modestbranding=1&color=white" title="Rotoscope — Week 7" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-      <p class="week-card-meta"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1"/></svg>In Progress</p>
-      <a class="credit-link" href="https://youtu.be/GVSKDEE_AaM" target="_blank" rel="noopener noreferrer"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1V6" stroke="currentColor" stroke-width="1.2"/></svg>Watch</a>
-    </div>
-
-    <div class="week-card">
-      <span class="week-badge">Week 8</span>
-      <h3 class="week-card-title">Rotoscope PL8</h3>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/W_RGfRRUQ-Q?rel=0&modestbranding=1&color=white" title="Rotoscope — Week 8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-      <p class="week-card-meta"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1"/></svg>In Progress</p>
-      <a class="credit-link" href="https://youtu.be/W_RGfRRUQ-Q" target="_blank" rel="noopener noreferrer"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1V6" stroke="currentColor" stroke-width="1.2"/></svg>Watch</a>
-    </div>
-
-    <div class="week-card">
-      <span class="week-badge">Week 9</span>
-      <h3 class="week-card-title">Rotoscope PL9</h3>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/5qzngQWGtlk?rel=0&modestbranding=1&color=white" title="Rotoscope — Week 9" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-      <p class="week-card-meta"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1"/></svg>In Progress</p>
-      <a class="credit-link" href="https://youtu.be/5qzngQWGtlk" target="_blank" rel="noopener noreferrer"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1V6" stroke="currentColor" stroke-width="1.2"/></svg>Watch</a>
-    </div>
-
-    <div class="week-card">
-      <span class="week-badge">Week 10</span>
-      <h3 class="week-card-title">Rotoscope PL10</h3>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/shdfgu-VI0M?rel=0&modestbranding=1&color=white" title="Rotoscope — Week 10" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-      <p class="week-card-meta"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1"/></svg>In Progress</p>
-      <a class="credit-link" href="https://youtu.be/shdfgu-VI0M" target="_blank" rel="noopener noreferrer"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1V6" stroke="currentColor" stroke-width="1.2"/></svg>Watch</a>
-    </div>
-
-    <div class="week-card">
-      <span class="week-badge">Week 11</span>
-      <h3 class="week-card-title">Rotoscope PL11</h3>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/x8Mej1bFws0?rel=0&modestbranding=1&color=white" title="Rotoscope — Week 11" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-      <p class="week-card-meta"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1"/></svg>In Progress</p>
-      <a class="credit-link" href="https://youtu.be/x8Mej1bFws0" target="_blank" rel="noopener noreferrer"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1V6" stroke="currentColor" stroke-width="1.2"/></svg>Watch</a>
-    </div>
-
-    <div class="week-card">
-      <span class="week-badge">Week 12</span>
-      <h3 class="week-card-title">Rotoscope PL12</h3>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/1Ot-uBc_Cnw?rel=0&modestbranding=1&color=white" title="Rotoscope — Week 12" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-      <p class="week-card-meta"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1"/></svg>In Progress</p>
-      <a class="credit-link" href="https://youtu.be/1Ot-uBc_Cnw" target="_blank" rel="noopener noreferrer"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1V6" stroke="currentColor" stroke-width="1.2"/></svg>Watch</a>
-    </div>
-    <!-- Final 1-minute video — spans full width -->
-    <div class="week-card" style="grid-column:1/-1;border-color:var(--accent);background:var(--surface);">
-      <span class="week-badge final">Final Cut</span>
-      <h3 class="week-card-title" style="font-size:1.4rem;">Rotoscope — 1 Minute Video</h3>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/JFszwNhNt40?rel=0&modestbranding=1&color=white" title="Rotoscope Final 1 Minute Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-      <p class="week-card-meta"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#c23b22" stroke-width="1.5"/></svg>Complete Sequence</p>
-      <a class="credit-link" href="https://youtu.be/7oxM3D60Syo" target="_blank" rel="noopener noreferrer"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1V6" stroke="currentColor" stroke-width="1.2"/></svg>Watch Full Video</a>
-    </div>
-
-  </div>
-</div>
-
-<div class="source-section" id="source-section">
-  <div class="source-header">
-    <span class="source-badge">Source</span>
-    <div class="source-title">Reference Footage <span>/ Original Video</span></div>
-  </div>
-
-  <div class="video-wrap">
-    <iframe src="https://www.youtube.com/embed/XmsuKrjB3SI?rel=0&modestbranding=1&color=white" title="Rotoscope Reference — Source Footage" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  </div>
-
-  <div class="credits-strip">
-    <div class="credit-block">
-      <label>Video Credit</label>
-      <div class="credit-val">Original Creator</div>
-      <div class="credit-note">Source footage used as rotoscoping reference. All rights belong to the original owner.</div>
-      <a class="credit-link" href="https://youtu.be/XmsuKrjB3SI?si=rHhlIJDdUa12ypTf" target="_blank" rel="noopener noreferrer">
-        <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1V6" stroke="currentColor" stroke-width="1.2"/></svg>
-        View on YouTube
-      </a>
-    </div>
-    <div class="credit-block">
-      <label>Usage</label>
-      <div class="credit-val">Educational</div>
-      <div class="credit-note">Referenced solely for animation study and academic practice purposes.</div>
-    </div>
-    <div class="credit-block">
-      <label>Rotoscoping by</label>
-      <div class="credit-val">Ybrahim A. Calvo</div>
-      <div class="credit-note">Frame-by-frame drawing and digital line work over the reference footage.</div>
-    </div>
   </div>
 </div>
 
 <div class="status-section" id="status-section">
-  <span class="status-tag">Complete</span>
+  <span class="status-tag">In Development</span>
   <div class="status-text">
-    <h2>12 weeks. 1 final video.</h2>
-    <p>The full rotoscope sequence has been built week by week — from early drafts to a complete one-minute animation. The journey is documented above.</p>
+    <h2>Weekly updates above.</h2>
+    <p>The full rotoscope sequence is being built — check the final cut at the top and explore the weekly progress videos below.</p>
   </div>
 </div>
 
@@ -898,7 +854,7 @@ const obs=new IntersectionObserver((entries)=>{
   });
 },{threshold:0.08});
 
-['frames-label','frame-grid','info-row','apps-section','tutorial-section','weeks-title','weeks-grid','source-section','status-section','footer'].forEach(id=>{
+['frames-label','frame-grid','info-row','final-video-section','source-section','apps-section','tutorial-section','weeks-title','weeks-grid','status-section','footer'].forEach(id=>{
   const el=document.getElementById(id);if(el)obs.observe(el);
 });
 </script>
