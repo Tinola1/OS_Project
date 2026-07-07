@@ -781,12 +781,12 @@ footer.visible { opacity: 1; transform: translateY(0); }
       <h2 class="tex-heading">Planet Textures</h2>
       <p class="tex-desc">High-resolution texture maps used for each celestial body in the Blender scene. Click a thumbnail to preview, or use the download button to save individual files.</p>
       <button class="tex-toggle-btn" id="tex-toggle" onclick="toggleTextures()">
-        <span class="tex-toggle-arrow" id="tex-arrow">↑</span>
-        <span id="tex-toggle-label">Hide Textures</span>
+        <span class="tex-toggle-arrow flipped" id="tex-arrow">↑</span>
+        <span id="tex-toggle-label">Show Textures</span>
       </button>
     </div>
 
-    <div class="tex-gallery" id="tex-gallery">
+    <div class="tex-gallery collapsed" id="tex-gallery">
 
       <!-- SUN -->
       <div class="tex-planet-group">
@@ -1330,7 +1330,7 @@ function tryFallback(img, planet) {
 /* ══════════════════════════════════════
    TEXTURE GALLERY
 ══════════════════════════════════════ */
-let texVisible = true;
+let texVisible = false;
 function toggleTextures() {
   texVisible = !texVisible;
   const gallery = document.getElementById('tex-gallery');
@@ -1496,7 +1496,7 @@ def kf_loc_rot(ob, frame):
 
 def force_cam_marker(cam_ob, frame):
     scene = bpy.context.scene
-    for m in [m for m in scene.timeline_markers if m.frame === frame]:
+    for m in [m for m in scene.timeline_markers if m.frame == frame]:
         scene.timeline_markers.remove(m)
     mk = scene.timeline_markers.new(name=cam_ob.name, frame=frame)
     mk.camera = cam_ob
