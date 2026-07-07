@@ -10,7 +10,7 @@
 :root{
   --bg:#0d0c0a;
   --ink:#e8e3d8;
-  --muted:#5a5750;
+  --muted:#8a867c;
   --border:#242220;
   --accent:#c23b22;
   --surface:#141310;
@@ -185,24 +185,24 @@ nav.visible{opacity:1;transform:translateY(0);}
   font-family:'Cormorant Garamond',serif;
   font-size:1.05rem;font-weight:400;color:var(--ink);line-height:1.4;
 }
-.credit-block .credit-note{margin-top:0.4rem;font-size:0.55rem;color:var(--muted);line-height:1.7;}
+.credit-block .credit-note{margin-top:0.4rem;font-size:0.6rem;color:var(--ink);opacity:0.8;line-height:1.8;}
 .credit-link{
   display:inline-flex;align-items:center;gap:0.4rem;
-  font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--muted);text-decoration:none;
-  margin-top:0.7rem;border-bottom:1px solid var(--border);padding-bottom:0.15rem;
+  font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;
+  margin-top:0.7rem;border-bottom:1px solid var(--muted);padding-bottom:0.15rem;
   transition:color 0.2s ease,border-color 0.2s ease;
 }
-.credit-link:hover{color:var(--ink);border-color:var(--muted);}
+.credit-link:hover{color:var(--accent);border-color:var(--accent);}
 .credit-url{
-  display:block;margin-top:0.5rem;
+  display:block;margin-top:0.6rem;
   font-family:'DM Mono',monospace;
-  font-size:0.5rem;letter-spacing:0.02em;
-  color:var(--muted);word-break:break-all;
-  text-decoration:none;
-  transition:color 0.2s ease;
+  font-size:0.58rem;letter-spacing:0.02em;
+  color:var(--ink);opacity:0.85;word-break:break-all;
+  text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--muted);
+  transition:color 0.2s ease,opacity 0.2s ease;
 }
-.credit-url:hover{color:var(--accent);}
+.credit-url:hover{color:var(--accent);opacity:1;}
 
 /* ── WEEKS GRID CONTAINER ── */
 .weeks-container{
@@ -281,16 +281,6 @@ nav.visible{opacity:1;transform:translateY(0);}
 
 .week-card-meta svg{width:12px;height:12px;flex-shrink:0;}
 
-.credit-link{
-  display:inline-flex;align-items:center;gap:0.4rem;
-  font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--muted);text-decoration:none;
-  border-bottom:1px solid var(--border);padding-bottom:0.15rem;
-  transition:color 0.2s ease,border-color 0.2s ease;
-  margin-top:0.8rem;
-}
-.credit-link:hover{color:var(--ink);border-color:var(--muted);}
-
 /* ── APPS USED ── */
 .apps-section{
   position:relative;z-index:2;
@@ -336,7 +326,7 @@ nav.visible{opacity:1;transform:translateY(0);}
   font-size:1.2rem;font-weight:400;color:var(--ink);
   margin-bottom:0.3rem;
 }
-.app-desc{font-size:0.52rem;letter-spacing:0.1em;color:var(--muted);line-height:1.8;}
+.app-desc{font-size:0.58rem;letter-spacing:0.06em;color:var(--ink);opacity:0.8;line-height:1.8;}
 
 /* ── TUTORIAL SECTION ── */
 .tutorial-section{
@@ -359,7 +349,7 @@ nav.visible{opacity:1;transform:translateY(0);}
   font-weight:300;color:var(--ink);
 }
 .tutorial-header p{
-  font-size:0.65rem;line-height:2;color:var(--muted);
+  font-size:0.65rem;line-height:2;color:var(--ink);opacity:0.85;
   max-width:500px;margin-top:0.8rem;
 }
 
@@ -402,7 +392,7 @@ nav.visible{opacity:1;transform:translateY(0);}
   line-height:1.4;margin-bottom:0.5rem;
 }
 .step-desc{
-  font-size:0.58rem;line-height:1.9;color:var(--muted);
+  font-size:0.62rem;line-height:1.9;color:var(--ink);opacity:0.8;
 }
 
 .step-img-col{
@@ -438,7 +428,7 @@ nav.visible{opacity:1;transform:translateY(0);}
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:300;color:var(--ink);margin-bottom:1rem;
 }
-.status-text p{font-size:0.68rem;line-height:1.9;color:var(--muted);max-width:380px;}
+.status-text p{font-size:0.68rem;line-height:1.9;color:var(--ink);opacity:0.8;max-width:380px;}
 
 /* ── FOOTER ── */
 footer{
@@ -622,7 +612,7 @@ footer.visible{opacity:1;transform:translateY(0);}
       <label>Credits to the Owner</label>
       <div class="credit-val">Original Creator</div>
       <div class="credit-note">Source footage used as rotoscoping reference. All rights belong to the original owner. Full credit and gratitude to the creator of this reference material.</div>
-      <a class="credit-url" href="https://youtu.be/XmsuKrjB3SI?si=rHhlIJDdUa12ypTf" target="_blank" rel="noopener noreferrer">https://youtu.be/XmsuKrjB3SI</a>
+      <a class="credit-url" href="https://youtu.be/XmsuKrjB3SI?si=rHhlIJDdUa12ypTf" target="_blank" rel="noopener noreferrer">https://youtu.be/XmsuKrjB3SI?si=rHhlIJDdUa12ypTf</a>
       <a class="credit-link" href="https://youtu.be/XmsuKrjB3SI?si=rHhlIJDdUa12ypTf" target="_blank" rel="noopener noreferrer">
         <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1V6" stroke="currentColor" stroke-width="1.2"/></svg>
         View on YouTube
@@ -633,7 +623,7 @@ footer.visible{opacity:1;transform:translateY(0);}
       <div class="credit-val">Educational</div>
       <div class="credit-note">Referenced solely for animation study and academic practice purposes.</div>
     </div>
-    <div class="credit-block">
+     <div class="credit-block">
       <label>Dance Choreo by</label>
       <div class="credit-val">Jocelyn Kim</div>
       <div class="credit-note">Little Mix - Power covered by Jocelyn Kim (choreography from CLASS:y)</div>
